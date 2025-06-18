@@ -11,6 +11,7 @@
 */
 package sqlline;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -279,6 +280,9 @@ abstract class Rows implements Iterator<Rows.Row> {
         case Types.ROWID:
         case Types.NCLOB:
         case Types.SQLXML:
+        case Types.BINARY:
+        case Types.VARBINARY:
+        case Types.LONGVARBINARY:
           setFormat(rs.getObject(i + 1), null, i);
           break;
         case Types.TIME:
@@ -307,6 +311,8 @@ abstract class Rows implements Iterator<Rows.Row> {
     private void setFormat(Object o, Format format, int i) {
       if (o == null) {
         values[i] = String.valueOf(nullValue);
+      } else if (o instanceof byte[]) {
+        values[i] = new String((byte[]) o, StandardCharsets.UTF_8);
       } else if (format != null) {
         values[i] = format.format(o);
       } else {

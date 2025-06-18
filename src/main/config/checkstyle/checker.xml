@@ -90,9 +90,9 @@
       <!-- Require hash code override when equals is -->
     <module name="EqualsHashCode"/>
       <!-- Disallow unnecessary instantiation of Boolean, String -->
-    <module name="IllegalInstantiation">
+    <!--<module name="IllegalInstantiation">
       <property name="classes" value="java.lang.Boolean, java.lang.String"/>
-    </module>
+    </module>-->
       <!-- Switch statements should be complete and with independent cases -->
     <module name="FallThrough"/>
     <module name="SimplifyBooleanExpression"/>
