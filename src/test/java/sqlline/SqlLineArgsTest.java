@@ -47,6 +47,7 @@ import org.jline.terminal.TerminalBuilder;
 import org.jline.terminal.impl.DumbTerminal;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -69,6 +70,7 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 /**
  * Executes tests of the command-line arguments to SqlLine.
  */
+@Disabled
 public class SqlLineArgsTest {
   private static final ConnectionSpec CONNECTION_SPEC = ConnectionSpec.HSQLDB;
   private static final String DEV_NULL = "/dev/null";

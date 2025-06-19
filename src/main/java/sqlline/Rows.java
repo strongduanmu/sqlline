@@ -294,6 +294,14 @@ abstract class Rows implements Iterator<Rows.Row> {
         case Types.TIMESTAMP:
           setFormat(rs.getObject(i + 1), timestampFormat, i);
           break;
+        case Types.CHAR:
+        case Types.VARCHAR:
+        case Types.LONGVARCHAR:
+        case Types.LONGNVARCHAR:
+        case Types.NCHAR:
+        case Types.NVARCHAR:
+          values[i] = String.valueOf(rs.getString(i + 1));
+          break;
         default:
           values[i] = rs.getString(i + 1);
           break;
